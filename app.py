@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 
 # Load the trained model
-rf_100 = joblib.load('rf_100_model.pkl')
+
 
 # Title of the app
 st.title("Credit Card Fraud Detection")
@@ -48,7 +48,8 @@ input_data = pd.DataFrame({
 
 # Button to trigger prediction
 if st.button("Predict"):
-    prediction = rf_100.predict(input_data)
+    model = pickle.load(open("rf_100_model.pkl", "rb"))
+    prediction = model.predict(input_data)
     if prediction[0] == 1:
         st.error("Fraudulent Transaction!")
     else:
