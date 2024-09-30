@@ -39,7 +39,7 @@ with col3:
     V11 = st.number_input("V11", min_value=-10.0, max_value=10.0, value=0.0)
     V13 = st.number_input("V13", min_value=-10.0, max_value=10.0, value=0.0)
     V22 = st.number_input("V22", min_value=-10.0, max_value=10.0, value=0.0)
-    V28 = st.number_input("V22", min_value=-10.0, max_value=10.0, value=0.0)
+    V28 = st.number_input("V28", min_value=-10.0, max_value=10.0, value=0.0)
 
 # Time and Amount inputs at the bottom
 Time = st.number_input("⏲️ Time (in seconds)", min_value=0, max_value=86400, value=0)
