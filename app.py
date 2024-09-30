@@ -1,9 +1,9 @@
 import streamlit as st
-
 import pandas as pd
+import pickle
 
-# Load the trained model
-
+# Load the trained model outside the button click for efficiency
+model = pickle.load(open("rf_100_model.pkl", "rb"))
 
 # Title of the app
 st.title("Credit Card Fraud Detection")
@@ -40,21 +40,14 @@ input_data = pd.DataFrame({
     'V1': [V1],
     'V28': [V28],
     'V22': [V22],
-    
     'V13': [V13],
-    
     'Amount': [Amount]
 })
 
 # Button to trigger prediction
 if st.button("Predict"):
-    model = pickle.load(open("rf_100_model.pkl", "rb"))
     prediction = model.predict(input_data)
     if prediction[0] == 1:
         st.error("Fraudulent Transaction!")
     else:
         st.success("Safe Transaction.")
-
-
-
-
